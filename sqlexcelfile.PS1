@@ -49,6 +49,16 @@ Set-Content "C:\tmp\pws\1.txt" "Hello World"
 Get-Content "C:\tmp\pws\1.txt"
 Add-Content "C:\tmp\pws\1.txt" "Hello Mars"
 
+foreach ($line in [System.IO.File]::ReadLines("C:\tmp\pws\1.txt")) {
+    $line
+}
 
+Select-String -Path C:\tmp\pws\*.txt -Pattern 'hello'
+Select-String -Path C:\tmp\pws\*.txt -Pattern 'xxx', 'yyy'  -NotMatch
+
+$files = Get-ChildItem -Path "C:\tmp\pws" -name
+ForEach($i in $files){
+    echo $i
+}
 
 
